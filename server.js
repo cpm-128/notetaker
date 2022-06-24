@@ -3,6 +3,9 @@ const express = require('express');
 // front end can request data from:
 const notes = require('./db/db.json');
 
+// run on heroku port else local server
+const PORT = process.env.PORT || 3001;
+
 // instantiate the server
 const app = express();
 
@@ -12,6 +15,6 @@ app.get('/api/notes', (req, res) => {
 });
 
 // listen to server
-app.listen(3001, () => {
-    console.log(`API server now on port 3001`);
+app.listen(PORT, () => {
+    console.log(`API server now on port ${PORT}.`);
 });
