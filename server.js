@@ -9,9 +9,16 @@ const PORT = process.env.PORT || 3001;
 // instantiate the server
 const app = express();
 
-// notes routes
+// notes routes to GET from server
 app.get('/api/notes', (req, res) => {
     res.json(notes);
+});
+
+// accept data from the client to be stored server-side
+app.post('/api/notes', (req, res) => {
+    // req.body is where out incoming content will be
+    console.log(req.body);
+    res.json(req.body);
 });
 
 // listen to server
