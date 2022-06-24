@@ -9,6 +9,10 @@ const PORT = process.env.PORT || 3001;
 // instantiate the server
 const app = express();
 
+// how to handle incoming data from POST requests
+app.use(express.urlencoded({ extended: true}));
+app.use(express.json());
+
 // notes routes to GET from server
 app.get('/api/notes', (req, res) => {
     res.json(notes);
