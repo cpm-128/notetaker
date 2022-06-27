@@ -14,6 +14,8 @@ const app = express();
 // MIDDLEWARE: how to handle incoming data from POST requests
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
+// MIDDLEWARE: front-end resources
+app.use(express.static('public'));
 
 // FUNCTIONS
 function createNewNote(body, notesArray) {
@@ -38,6 +40,8 @@ function validateNote(note) {
     return true;
 }
 
+// API ROUTES
+
 // notes routes to GET from server
 app.get('/api/notes', (req, res) => {
     res.json(notes);
@@ -60,7 +64,16 @@ app.post('/api/notes', (req, res) => {
     }
 });
 
-// listen to server
+// HTML RUTES
+
+// notes route to return notes.html
+app.get('/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/notes.html'));
+});
+
+// wildcart route to return index.html
+
+// LISTEN to server
 app.listen(PORT, () => {
     console.log(`API server now on port ${PORT}.`);
 });
