@@ -36,6 +36,9 @@ function validateNote(note) {
     if (!note.title || typeof note.title !== 'string') {
         return false;
     }
+    if (!note.text || typeof note.text !== 'string') {
+        return false;
+    }
     // OK if note text is empty so we will not be validating that
     return true;
 }
@@ -55,7 +58,7 @@ app.post('/api/notes', (req, res) => {
 
     // pass through validation function before creating note
     if (!validateNote(req.body)) {
-        res.status(400).send('The note is missing a proper title.')
+        res.status(400).send('The note is missing a proper title or description. Both are required.')
     } else {
         // add animal to JSON file and animals array in this function
             const note = createNewNote(req.body, notes);
