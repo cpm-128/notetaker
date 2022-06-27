@@ -60,7 +60,11 @@ app.get('/api/notes', (req, res) => {
 // GET note by id
 app.get('/api/notes/:id', (req, res) => {
     const result = findById(req.params.id, notes);
+    if (result) {
     res.json(result);
+    } else {
+        res.send(404);
+    }
 })
 
 // accept data from the client to be stored server-side
