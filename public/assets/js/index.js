@@ -40,7 +40,17 @@ const saveNote = (note) =>
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(note),
-  });
+  })
+    // code added to POST the saveNote
+    .then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+      alert('Error: ' + response.statusText);
+    })
+    .then(postResponse => {
+      alert('Thank you for adding a note');
+    });
 
 const deleteNote = (id) =>
   fetch(`/api/notes/${id}`, {
