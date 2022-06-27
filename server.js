@@ -4,6 +4,8 @@ const fs = require('fs');
 const path = require('path');
 // front end can request data from:
 const { notes } = require('./db/db.json')
+// Helper method for generating unique ids
+const uuid = require('./helpers/uuid');
 
 // run on heroku port else local server
 const PORT = process.env.PORT || 3001;
@@ -53,8 +55,9 @@ app.get('/api/notes', (req, res) => {
 // accept data from the client to be stored server-side
 app.post('/api/notes', (req, res) => {
     // set id based on what the index of the array will be
+    //req.body.id = notes.length.toString();
     //TODO: considering changing this to random npm packge. deleting notes may result in duplicate id values
-    req.body.id = notes.length.toString();
+    req.body.id = uuid();
 
     // pass through validation function before creating note
     if (!validateNote(req.body)) {
