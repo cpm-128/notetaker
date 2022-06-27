@@ -40,8 +40,12 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
+BONUS
+WHEN I click on a note's delete button
+THEN the note is removed from the list of saved notes
+
 ## Installation
-- 
+- Deploy in web browser.
 ## Usage
 To quickly write and access notes.
 
@@ -50,7 +54,12 @@ To quickly write and access notes.
 <img src="./images/11-express-homework-demo-02.png">
 
 ## Deployed Application
+Live url: https://cpm-128.github.io/notetaker/
+Repo url: https://github.com/cpm-128/notetaker
+Heroku url: https://arcane-beyond-22320.herokuapp.com/
 ### Screencapture
+<img src="./images/notes-index.png">
+<img src="./images/notes.png">
 
 ## Contributors
 <a href="https://github.com/coding-boot-camp/miniature-eureka">UNC Starter Code</a> for the front end of the application.
