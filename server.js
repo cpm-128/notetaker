@@ -45,12 +45,23 @@ function validateNote(note) {
     return true;
 }
 
+function findById(id, notesArray) {
+    const result = notesArray.filter(note => note.id === id)[0];
+    return result;
+}
+
 // API ROUTES
 
 // notes routes to GET from server
 app.get('/api/notes', (req, res) => {
     res.json(notes);
 });
+
+// GET note by id
+app.get('/api/notes/:id', (req, res) => {
+    const result = findById(req.params.id, notes);
+    res.json(result);
+})
 
 // accept data from the client to be stored server-side
 app.post('/api/notes', (req, res) => {
