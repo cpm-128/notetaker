@@ -57,21 +57,25 @@ app.get('/api/notes', (req, res) => {
     res.json(notes);
 });
 
-// GET note by id
-app.get('/api/notes/:id', (req, res) => {
-    const result = findById(req.params.id, notes);
-    if (result) {
-    res.json(result);
-    } else {
-        res.send(404);
-    }
-})
+//TODO: make this delete request fully functioning
+// DELETE note by id
+// app.delete('/api/notes/:id', (req, res) => {
+//     const deleteNote = req.params.id;
+
+//     // read all the notes from the db.json file
+//     notes = notes.filter(thisNote => {
+//         // remove the note with the given id property
+//         deleteNote(deleteNote);
+//     });
+
+//     // rewrite the notes fomr db.json
+//     fs.writeFileSync('./db/db.json', JSON.stringify(notes));
+//     res.json(notes);
+// });
 
 // accept data from the client to be stored server-side
 app.post('/api/notes', (req, res) => {
-    // set id based on what the index of the array will be
-    //req.body.id = notes.length.toString();
-    //TODO: considering changing this to random npm packge. deleting notes may result in duplicate id values
+    // set id based on random generated
     req.body.id = uuid();
 
     // pass through validation function before creating note
