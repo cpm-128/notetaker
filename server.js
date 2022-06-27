@@ -71,7 +71,10 @@ app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
-// wildcart route to return index.html
+// wildcart route to return index.html *ORDER MATTERS, this is last to not overwrite anything else
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './public/index.html'));
+});
 
 // LISTEN to server
 app.listen(PORT, () => {
