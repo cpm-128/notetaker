@@ -49,7 +49,7 @@ const saveNote = (note) =>
       alert('Error: ' + response.statusText);
     })
     .then(postResponse => {
-      alert('Thank you for adding a note');
+      // alert('Thank you for adding a note');
     });
 
 const deleteNote = (id) =>
