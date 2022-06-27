@@ -45,7 +45,7 @@ WHEN I click on a note's delete button
 THEN the note is removed from the list of saved notes
 
 ## Installation
-- Deploy in web browser.
+- Deploy in web browser with the Heroku url: https://arcane-beyond-22320.herokuapp.com/
 ## Usage
 To quickly write and access notes.
 
